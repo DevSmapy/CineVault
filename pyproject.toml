@@ -8,6 +8,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 pyspark = "^3.5.1"
+requests = "^2.32.3"
+pyre-extensions = "^0.0.30"
 
 
 [build-system]
