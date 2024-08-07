@@ -10,6 +10,7 @@ python = "^3.11"
 pyspark = "^3.5.1"
 requests = "^2.32.3"
 pyre-extensions = "^0.0.30"
+black = "^24.8.0"
 
 
 [build-system]
