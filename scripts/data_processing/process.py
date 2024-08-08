@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from typing import Any, Dict
+from typing import Any, Dict, List
 from pyspark.sql.types import StructType, StructField, StringType
 
 
@@ -18,4 +18,11 @@ def process_ml_data(data: str, spark: SparkSession) -> Any:  # movieListResult
     data = str2dict(data)
     schema = determine_schema(data["movieListResult"]["movieList"][0])
     df = spark.createDataFrame(data["movieListResult"]["movieList"], schema=schema)
+    return df
+
+
+def process_multiple_pages(
+    data: List[Dict[str, Any]], spark: SparkSession
+) -> Any:  # movieListResult
+    df = spark.createDataFrame(data)
     return df
