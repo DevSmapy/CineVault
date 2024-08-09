@@ -1,1 +1,1 @@
-from .ingest import fetch_data_from_api, generate_params
+from .ingest import generate_params, fetch_multiple_pages
