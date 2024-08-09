@@ -1,4 +1,4 @@
-from pyspark.sql import SparkSession
+from pyspark.sql import SparkSession, DataFrame
 from typing import Any, Dict, List
 from pyspark.sql.types import StructType, StructField, StringType
 
@@ -26,3 +26,7 @@ def process_multiple_pages(
 ) -> Any:  # movieListResult
     df = spark.createDataFrame(data)
     return df
+
+
+def save_data(df: DataFrame, partition: List[str], path: str) -> None:
+    df.write.partitionBy(partition).mode("overwrite").parquet(path)
